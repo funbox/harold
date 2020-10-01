@@ -4,6 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@funboxteam/eslint-config": "5.1.0",
+    "eslint": "5.16.0",
+    "husky": "4.3.0",
+    "lint-staged": "10.4.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
