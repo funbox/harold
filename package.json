@@ -1,10 +1,10 @@
 {
   "name": "@funboxteam/buildo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project builds comparison tool",
   "main": "index.js",
   "bin": {
-    "buildo": "cli.js"
+    "buildo": "index.js"
   },
   "scripts": {
     "lint": "eslint .",
