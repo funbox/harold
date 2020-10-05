@@ -11,7 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "commander": "6.1.0"
+    "commander": "6.1.0",
+    "fast-glob": "3.2.4",
+    "gzip-size": "5.1.1",
+    "listr": "0.14.3"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "5.1.0",
