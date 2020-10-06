@@ -28,6 +28,5 @@ module.exports = function takeSnapshot() {
   ]);
 
   tasks.run()
-    // .then(context => console.log(context))
     .catch(error => console.error(error));
 };
