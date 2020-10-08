@@ -3,6 +3,7 @@ const { EOL } = require('os');
 const path = require('path');
 
 const diffTotal = require('../lib/diff-total');
+const printBuildTime = require('../lib/print-build-time');
 const printSnapshotInfo = require('../lib/print-snapshot-info');
 
 module.exports = function diff(left, right) {
@@ -26,6 +27,12 @@ module.exports = function diff(left, right) {
   console.log('Snapshots:');
   printSnapshotInfo(leftSnapshot, 'L');
   printSnapshotInfo(rightSnapshot, 'R');
+
+  console.log(EOL);
+
+  // Build time
+  console.log('Build time difference:');
+  printBuildTime(leftSnapshot, rightSnapshot);
 
   console.log(EOL);
 
