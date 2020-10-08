@@ -3,6 +3,7 @@ const { EOL } = require('os');
 const path = require('path');
 
 const diffTotal = require('../lib/diff-total');
+const printSnapshotInfo = require('../lib/print-snapshot-info');
 
 module.exports = function diff(left, right) {
   const leftPath = path.resolve(left);
@@ -22,26 +23,9 @@ module.exports = function diff(left, right) {
   console.log(EOL);
 
   // Snapshots info
-  const leftDate = new Date(leftSnapshot.date);
-  const rightDate = new Date(rightSnapshot.date);
-
-  console.log('Provided snapshots:');
-  console.log(
-    ' L:',
-    leftDate.toLocaleDateString(),
-    leftDate.toLocaleTimeString(),
-    '•',
-    leftSnapshot.name,
-    `${leftSnapshot.branch ? `• ${leftSnapshot.branch}` : ''}`,
-  );
-  console.log(
-    ' R:',
-    rightDate.toLocaleDateString(),
-    rightDate.toLocaleTimeString(),
-    '•',
-    rightSnapshot.name,
-    `${rightSnapshot.branch ? `• ${rightSnapshot.branch}` : ''}`,
-  );
+  console.log('Snapshots:');
+  printSnapshotInfo(leftSnapshot, 'L');
+  printSnapshotInfo(rightSnapshot, 'R');
 
   console.log(EOL);
 
