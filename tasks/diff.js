@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { EOL } = require('os');
 const path = require('path');
 
 const diffTotal = require('../lib/diff-total');
@@ -17,6 +18,18 @@ module.exports = function diff(left, right) {
 
   const leftSnapshot = JSON.parse(leftBuffer.toString());
   const rightSnapshot = JSON.parse(rightBuffer.toString());
+
+  console.log(EOL);
+
+  // Snapshots info
+  const leftDate = new Date(leftSnapshot.date);
+  const rightDate = new Date(rightSnapshot.date);
+
+  console.log('Provided snapshots:');
+  console.log(' L:', leftSnapshot.name, '•', leftDate.toLocaleDateString(), leftDate.toLocaleTimeString());
+  console.log(' R:', rightSnapshot.name, '•', rightDate.toLocaleDateString(), rightDate.toLocaleTimeString());
+
+  console.log(EOL);
 
   // Total diff
   console.log('Overall differences by category:');
