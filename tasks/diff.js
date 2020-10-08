@@ -26,8 +26,22 @@ module.exports = function diff(left, right) {
   const rightDate = new Date(rightSnapshot.date);
 
   console.log('Provided snapshots:');
-  console.log(' L:', leftSnapshot.name, '•', leftDate.toLocaleDateString(), leftDate.toLocaleTimeString());
-  console.log(' R:', rightSnapshot.name, '•', rightDate.toLocaleDateString(), rightDate.toLocaleTimeString());
+  console.log(
+    ' L:',
+    leftDate.toLocaleDateString(),
+    leftDate.toLocaleTimeString(),
+    '•',
+    leftSnapshot.name,
+    `${leftSnapshot.branch ? `• ${leftSnapshot.branch}` : ''}`,
+  );
+  console.log(
+    ' R:',
+    rightDate.toLocaleDateString(),
+    rightDate.toLocaleTimeString(),
+    '•',
+    rightSnapshot.name,
+    `${rightSnapshot.branch ? `• ${rightSnapshot.branch}` : ''}`,
+  );
 
   console.log(EOL);
 
