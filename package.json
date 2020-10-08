@@ -15,7 +15,8 @@
     "commander": "6.1.0",
     "fast-glob": "3.2.4",
     "gzip-size": "5.1.1",
-    "listr": "0.14.3"
+    "listr": "0.14.3",
+    "pretty-bytes": "5.4.1"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "5.1.0",
