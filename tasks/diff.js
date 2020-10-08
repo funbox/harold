@@ -2,8 +2,8 @@ const fs = require('fs');
 const { EOL } = require('os');
 const path = require('path');
 
-const diffTotal = require('../lib/diff-total');
 const printBuildTime = require('../lib/print-build-time');
+const printDiffTotal = require('../lib/print-diff-total');
 const printSnapshotInfo = require('../lib/print-snapshot-info');
 
 module.exports = function diff(left, right) {
@@ -38,10 +38,10 @@ module.exports = function diff(left, right) {
 
   // Total diff
   console.log('Overall differences by category:');
-  console.log(diffTotal({
+  printDiffTotal({
     left: leftSnapshot.total,
     right: rightSnapshot.total,
     leftCaption: path.parse(leftPath).name,
     rightCaption: path.parse(rightPath).name,
-  }));
+  });
 };
