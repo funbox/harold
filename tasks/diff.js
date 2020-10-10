@@ -3,6 +3,7 @@ const { EOL } = require('os');
 const path = require('path');
 
 const printBuildTime = require('../lib/print-build-time');
+const printDiffFileTree = require('../lib/print-diff-file-tree');
 const printDiffTotal = require('../lib/print-diff-total');
 const printSnapshotInfo = require('../lib/print-snapshot-info');
 
@@ -44,4 +45,10 @@ module.exports = function diff(left, right) {
     leftCaption: path.parse(leftPath).name,
     rightCaption: path.parse(rightPath).name,
   });
+
+  console.log(EOL);
+
+  // File tree diff
+  console.log('File tree diff:');
+  printDiffFileTree(leftSnapshot.fileTree, rightSnapshot.fileTree);
 };
