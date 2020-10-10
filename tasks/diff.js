@@ -34,7 +34,7 @@ module.exports = function diff(left, right) {
 
   // Build time
   console.log(colorize('Build time:').cyan);
-  printBuildTime(leftSnapshot, rightSnapshot);
+  printBuildTime(leftSnapshot.buildTime, rightSnapshot.buildTime);
 
   console.log(EOL);
 
