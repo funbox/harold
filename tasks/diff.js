@@ -51,7 +51,7 @@ module.exports = function diff(left, right) {
 
   // File tree diff
   console.log(colorize('Diff by files:').cyan);
-  printDiffFileTree(leftSnapshot.fileTree, rightSnapshot.fileTree);
+  printDiffFileTree(leftSnapshot.fsEntries, rightSnapshot.fsEntries);
 
   console.log(EOL);
 };
