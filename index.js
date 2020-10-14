@@ -5,13 +5,13 @@ const program = require('commander');
 const pkg = require('./package');
 
 const diff = require('./tasks/diff');
-const takeSnapshot = require('./tasks/take-snapshot');
+const snapshot = require('./tasks/snapshot');
 
 // Take snapshot
 program
   .command('snapshot')
   .description('build project and take snapshot')
-  .action(takeSnapshot);
+  .action(snapshot);
 
 // Compare snapshots
 program
