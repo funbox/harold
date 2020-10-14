@@ -17,7 +17,6 @@
     "convert-hrtime": "3.0.0",
     "fast-glob": "3.2.4",
     "gzip-size": "5.1.1",
-    "listr": "0.14.3",
     "ora": "5.1.0",
     "pretty-bytes": "5.4.1"
   },

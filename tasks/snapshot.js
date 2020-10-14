@@ -1,32 +1,48 @@
-const Listr = require('listr');
+const ora = require('ora');
 
 const buildProject = require('../lib/build-project');
 const generateSnapshot = require('../lib/generate-snapshot');
 const writeSnapshotFile = require('../lib/write-snapshot-file');
 
-module.exports = function takeSnapshot() {
-  const tasks = new Listr([
-    {
-      title: 'Taking a snapshot...',
-      task: () => new Listr([
-        {
-          title: 'Build project',
-          task: context => buildProject()
-            .then(buildTime => (context.buildTime = buildTime)),
-        },
-        {
-          title: 'Generate snapshot',
-          task: context => generateSnapshot(context)
-            .then(snapshot => (context.snapshot = snapshot)),
-        },
-        {
-          title: 'Save snapshot',
-          task: context => writeSnapshotFile(context),
-        },
-      ]),
-    },
-  ]);
+module.exports = async function snapshot() {
+  const spinner = ora();
+  const context = {
+    buildTime: null,
+    snapshot: null,
+  };
 
-  tasks.run()
-    .catch(error => console.error(error));
+  console.log('Taking a snapshot...');
+  spinner.indent = 1;
+
+  try {
+    const buildTime = process.hrtime();
+
+    spinner.start('Build project');
+    await buildProject();
+    context.buildTime = process.hrtime(buildTime);
+    spinner.clear();
+  } catch (error) {
+    spinner.fail();
+    throw error;
+  }
+
+  try {
+    spinner.start('Generate snapshot');
+    context.snapshot = generateSnapshot(context.buildTime);
+    spinner.clear();
+  } catch (error) {
+    spinner.fail();
+    throw error;
+  }
+
+  try {
+    spinner.start('Save snapshot');
+    await writeSnapshotFile(context.snapshot);
+    spinner.clear();
+  } catch (error) {
+    spinner.fail();
+    throw error;
+  }
+
+  spinner.succeed('Done!');
 };
