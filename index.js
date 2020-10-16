@@ -11,6 +11,7 @@ const snapshot = require('./tasks/snapshot');
 program
   .command('snapshot')
   .option('-e, --exec <cmd>', 'build command, default is "NO_HASH=true npm run build-production"')
+  .option('-p, --path <path>', 'build path, default is "public"')
   .description('build project and take snapshot')
   .action(snapshot);
 

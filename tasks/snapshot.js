@@ -7,6 +7,7 @@ const writeSnapshotFile = require('../lib/write-snapshot-file');
 module.exports = async function snapshot(cmdObj) {
   const spinner = ora();
   const context = {
+    buildPath: cmdObj.path,
     buildTime: null,
     execCmd: cmdObj.exec,
     snapshot: null,
@@ -29,7 +30,7 @@ module.exports = async function snapshot(cmdObj) {
 
   try {
     spinner.start('Generate snapshot');
-    context.snapshot = generateSnapshot(context.buildTime);
+    context.snapshot = generateSnapshot(context.buildPath, context.buildTime);
     spinner.clear();
   } catch (error) {
     spinner.fail();
