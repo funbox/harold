@@ -1,6 +1,5 @@
 const { colorize } = require('@funboxteam/diamonds');
 const fs = require('fs');
-const { EOL } = require('os');
 const path = require('path');
 
 const printBuildTime = require('../lib/print-build-time');
@@ -23,20 +22,18 @@ module.exports = function diff(left, right) {
   const leftSnapshot = JSON.parse(leftBuffer.toString());
   const rightSnapshot = JSON.parse(rightBuffer.toString());
 
-  console.log(EOL);
+  console.log();
 
   // Snapshots info
   console.log(colorize('Snapshots:').cyan);
   printSnapshotInfo(leftSnapshot, 'Left');
   printSnapshotInfo(rightSnapshot, 'Right');
-
-  console.log(EOL);
+  console.log();
 
   // Build time
   console.log(colorize('Build time:').cyan);
   printBuildTime(leftSnapshot.buildTime, rightSnapshot.buildTime);
-
-  console.log(EOL);
+  console.log();
 
   // Total diff
   console.log(colorize('Diff by category:').cyan);
@@ -46,12 +43,10 @@ module.exports = function diff(left, right) {
     leftCaption: path.parse(leftPath).name,
     rightCaption: path.parse(rightPath).name,
   });
-
-  console.log(EOL);
+  console.log();
 
   // File tree diff
   console.log(colorize('Diff by files:').cyan);
   printDiffFileTree(leftSnapshot.fsEntries, rightSnapshot.fsEntries);
-
-  console.log(EOL);
+  console.log();
 };
