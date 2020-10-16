@@ -10,6 +10,7 @@ const snapshot = require('./tasks/snapshot');
 // Take snapshot
 program
   .command('snapshot')
+  .option('-e, --exec <cmd>', 'build command, default is "NO_HASH=true npm run build-production"')
   .description('build project and take snapshot')
   .action(snapshot);
 

@@ -4,10 +4,11 @@ const buildProject = require('../lib/build-project');
 const generateSnapshot = require('../lib/generate-snapshot');
 const writeSnapshotFile = require('../lib/write-snapshot-file');
 
-module.exports = async function snapshot() {
+module.exports = async function snapshot(cmdObj) {
   const spinner = ora();
   const context = {
     buildTime: null,
+    execCmd: cmdObj.exec,
     snapshot: null,
   };
 
@@ -18,7 +19,7 @@ module.exports = async function snapshot() {
     const buildTime = process.hrtime();
 
     spinner.start('Build project');
-    await buildProject();
+    await buildProject(context.execCmd);
     context.buildTime = process.hrtime(buildTime);
     spinner.clear();
   } catch (error) {
