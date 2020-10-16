@@ -1,7 +1,7 @@
-const { colorize } = require('@funboxteam/diamonds');
 const fs = require('fs');
 const path = require('path');
 
+const colorize = require('../lib/colorize');
 const printBuildTime = require('../lib/print-build-time');
 const printDiffFileTree = require('../lib/print-diff-file-tree');
 const printDiffTotal = require('../lib/print-diff-total');
