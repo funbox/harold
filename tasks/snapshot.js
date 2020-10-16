@@ -13,6 +13,7 @@ module.exports = async function snapshot(cmdObj) {
     snapshot: null,
   };
 
+  console.log();
   console.log('Taking a snapshot...');
   spinner.indent = 1;
 
@@ -47,4 +48,5 @@ module.exports = async function snapshot(cmdObj) {
   }
 
   spinner.succeed('Done!');
+  console.log();
 };
