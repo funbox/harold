@@ -16,7 +16,8 @@
     "fast-glob": "3.2.4",
     "gzip-size": "5.1.1",
     "ora": "5.1.0",
-    "pretty-bytes": "5.4.1"
+    "pretty-bytes": "5.4.1",
+    "signal-exit": "3.0.3"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "5.1.0",
