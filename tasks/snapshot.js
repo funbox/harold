@@ -15,7 +15,9 @@ module.exports = async function snapshot(cmdObj) {
 
   console.log();
   console.log('Taking a snapshot...');
+
   spinner.indent = 1;
+  spinner.color = 'yellow';
 
   try {
     const buildTime = process.hrtime();
