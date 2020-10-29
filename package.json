@@ -1,10 +1,10 @@
 {
-  "name": "@funboxteam/buildo",
+  "name": "@funboxteam/harold",
   "version": "0.1.0",
   "description": "Project builds comparison tool",
   "main": "index.js",
   "bin": {
-    "buildo": "index.js"
+    "harold": "index.js"
   },
   "files": [
     "lib/",
