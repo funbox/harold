@@ -1,6 +1,6 @@
 {
   "name": "@funboxteam/harold",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Project builds comparison tool",
   "main": "index.js",
   "bin": {
