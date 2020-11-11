@@ -42,7 +42,7 @@ module.exports = async function snapshot(cmdObj) {
 
   try {
     spinner.start('Save snapshot');
-    await writeSnapshotFile(context.snapshot);
+    await writeSnapshotFile(context.snapshot, cmdObj.output);
     spinner.clear();
   } catch (error) {
     spinner.fail();

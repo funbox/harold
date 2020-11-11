@@ -10,6 +10,7 @@ const snapshot = require('./tasks/snapshot');
 // Take snapshot
 program
   .command('snapshot')
+  .option('-o, --output <path>', 'output filepath, default is "harold_snapshot_<date>_<time>.json"')
   .option('-e, --exec <cmd>', 'build command, default is "NO_HASH=true npm run build-production"')
   .option('-p, --path <path>', 'build path, default is "public"')
   .description('build project and take snapshot')
