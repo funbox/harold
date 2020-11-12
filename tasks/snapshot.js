@@ -20,11 +20,12 @@ module.exports = async function snapshot(cmdObj) {
   spinner.color = 'yellow';
 
   try {
-    const buildTime = process.hrtime();
-
     spinner.start('Build project');
+
+    const buildTime = process.hrtime();
     await buildProject(context.execCmd);
     context.buildTime = process.hrtime(buildTime);
+
     spinner.clear();
   } catch (error) {
     spinner.fail();
