@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 (19.11.2020)
+
+Improved error output when project build fails.
+
+
 ## 1.0.0 (12.11.2020)
 
 First major release.

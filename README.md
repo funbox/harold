@@ -40,7 +40,8 @@ Builds the project and takes the snapshot.
 Available options:
 
 - `-o, --output <path>` — sets the snapshot output path; default is `harold_snapshot_<date>_<time>.json`;
-- `-e, --exec <cmd>` — sets the building command; default is `NO_HASH=true npm run build-production`;
+- `-e, --exec <cmd>` — sets the building command; default is `npm run build-production`. The command will be run with
+`NO_HASH=true` env variable set;
 - `-p, --path <path>` — sets the path of the build result directory, which will be used for snapshotting; 
   default is `public`.
 
@@ -133,7 +134,11 @@ the overall comparison.
 Modern frontend bundlers may add hashes to the filenames to improve caching. But Harold compares files using
 their names. To improve the diff quality you should set up your bundler the way that turns off hashes when `NO_HASH` set.
 
-Or you may just override the build command by passing `--exec` flag.
+Or you may just provide another env variable if you need:
+
+```bash
+WITHOUT_CONTENTHASH=true harold snapshot
+```
 
 ### How to make a snapshot without building a project?
 
@@ -146,7 +151,7 @@ old dusty IE or Presto-based Opera. To make it easier for users with modern brow
 developers split the bundle on two parts: modern one & legacy one. The latter includes more polyfills, 
 contains older JS syntax, etc. 
 
-Harold expects that in the case of legacy bundle existence, its files will be named as `legacy.*.js`. If there're such 
+Harold expects that in the case of legacy bundle existence, its files will be named as `legacy.*.js`. If there are such 
 files, their stat will appear in “JS (legacy)” row.   
 
 ## Credits
