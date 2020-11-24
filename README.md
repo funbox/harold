@@ -55,7 +55,7 @@ Sends halp.
 
 ## FAQ
 
-### How it works?
+### How does it work?
 
 When you take a snapshot, Harold runs the build command, waits until the project is building, then goes to the output 
 directory and records the files' sizes. At the same time it creates the gzipped version of each file and records 
