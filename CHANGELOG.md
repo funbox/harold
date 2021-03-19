@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.3 (19.03.2021)
+
+Fixed trailing slash processing when `--path` is used.
+
+More info: [#7](https://github.com/funbox/harold/issues/7).
+
+
 ## 1.0.2 (31.12.2020)
 
 Fixed “Diff by category” result color. Difference in Gzip size now also affects
