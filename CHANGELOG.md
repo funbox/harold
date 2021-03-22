@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0 (22.03.2021)
+
+Fixed crash when Harold runs in a directory without `package.json` file.
+
+Suppressed stderr output when Harold runs in a directory without initialized
+Git repository.
+
+Replaced absolute paths with relative in the snapshot.
+
+Added trailing slash to directories paths in the snapshot.
+See [MIGRATION.md](./MIGRATION.md).
+
+
 ## 1.0.3 (19.03.2021)
 
 Fixed trailing slash processing when `--path` is used.
