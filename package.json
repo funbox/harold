@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "cli-table3": "0.6.0",
-    "commander": "6.2.0",
+    "commander": "7.2.0",
     "fast-glob": "3.2.5",
     "gzip-size": "6.0.0",
     "ora": "5.4.0",
