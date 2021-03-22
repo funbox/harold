@@ -31,7 +31,7 @@
     "signal-exit": "3.0.3"
   },
   "devDependencies": {
-    "@funboxteam/eslint-config": "5.1.0",
+    "@funboxteam/eslint-config": "5.3.0",
     "eslint": "5.16.0",
     "husky": "4.3.0",
     "lint-staged": "10.5.4"
