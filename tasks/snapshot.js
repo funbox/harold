@@ -1,5 +1,4 @@
 const ora = require('ora');
-const path = require('path');
 
 const buildProject = require('../lib/build-project');
 const generateSnapshot = require('../lib/generate-snapshot');
@@ -8,7 +7,7 @@ const writeSnapshotFile = require('../lib/write-snapshot-file');
 module.exports = async function snapshot(cmdObj) {
   const spinner = ora();
   const context = {
-    buildPath: path.resolve(cmdObj.path),
+    buildPath: cmdObj.path,
     buildTime: null,
     execCmd: cmdObj.exec,
     snapshot: null,
