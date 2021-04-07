@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1 (07.04.2021)
+
+Fixed paths duplication in snapshot.
+
+
 ## 2.0.0 (22.03.2021)
 
 Fixed crash when Harold runs in a directory without `package.json` file.
