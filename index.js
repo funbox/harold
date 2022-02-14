@@ -2,7 +2,7 @@
 
 const program = require('commander');
 
-const pkg = require('./package');
+const pkg = require('./package.json');
 
 const diff = require('./tasks/diff');
 const snapshot = require('./tasks/snapshot');
