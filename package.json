@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "prepublishOnly": "lawyergc -m 'Add running lawyer tool on prepublish'",
+    "prepublishOnly": "if [ -z \"$CI\" ]; then lawyer; fi",
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-git-hooks": "npx simple-git-hooks"
   },
